@@ -1,0 +1,8 @@
+prefix=/home/grape/catkin_ws/src/blackship_tf/build/devel
+
+Name: blackship_tf
+Description: Description of blackship_tf
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
