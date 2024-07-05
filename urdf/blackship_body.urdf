@@ -1,10 +1,8 @@
+<?xml version="1.0"?>
 <robot name="BlackShip">
+
     <link name="base_link"/>
     
-    <joint name="body_joint" type="fixed">
-        <parent link="base_link"/>
-        <child link="body_link"/>
-    </joint>
     <link name="body_link">
         <visual>
             <geometry>
@@ -16,5 +14,71 @@
             </material>
         </visual>
     </link>
+    
+    <link name="left_wheeel_link">
+        <visual>
+            <geometry>
+                <cylinder radius="0.025" length="0.03"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="right_wheeel_link">
+        <visual>
+            <geometry>
+                <cylinder radius="0.025" length="0.03"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <!--ball_link-->
+    <link name="ball_link">
+        <visual>
+            <geometry>
+                <sphere radius="0.025"/>
+            </geometry>
+        </visual>
+
+    <!--ball_link-->
+    <link name="lidar_link">
+        <visual>
+            <geometry>
+                <cylinder radius="0.03" length="0.05"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <joint name="body_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="body_link"/>
+        <origin xyz="0.075 0 0.05"/>
+    </joint>
+
+    <joint name="left_wheel_joint" type="continuous">
+        <parent link="body_link"/>
+        <child link="left_wheeel_link"/>
+        <origin xyz="0 0.09 0.025" rpy="-1.57 0 0"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <joint name="right_wheel_joint" type="continuous">
+        <parent link="body_link"/>
+        <child link="right_wheeel_link"/>
+        <origin xyz="0 -0.09 0.025" rpy="-1.57 0 0"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <joint name="ball_joint" type="fixed">
+        <parent link="body_link"/>
+        <child link="ball_link"/>
+        <origin xyz="0.15 0 0.025"/>
+    </joint>
+
+    <joint name="lidar_joint" type="fixed">
+        <parent link="body_link"/>
+        <child link="lidar_link"/>
+        <origin xyz="0.125 0 0.1"/>
+    </joint>
+
 </robot>
         
