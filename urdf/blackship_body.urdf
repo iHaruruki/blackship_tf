@@ -1,0 +1,20 @@
+<robot name="BlackShip">
+    <link name="base_link"/>
+    
+    <joint name="body_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="body_link"/>
+    </joint>
+    <link name="body_link">
+        <visual>
+            <geometry>
+                <box size="0.33 0.5 0.4"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <material name="red">
+                <color rgba="1.0 0.0 0.0 1.0"/>
+            </material>
+        </visual>
+    </link>
+</robot>
+        
