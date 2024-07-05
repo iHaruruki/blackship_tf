@@ -38,6 +38,7 @@
                 <sphere radius="0.025"/>
             </geometry>
         </visual>
+    </link>
 
     <!--ball_link-->
     <link name="lidar_link">
@@ -79,6 +80,5 @@
         <child link="lidar_link"/>
         <origin xyz="0.125 0 0.1"/>
     </joint>
-
 </robot>
         
