@@ -1,29 +1,38 @@
+<?xml version="1.0"?>
 <launch>
     <!--引数-->
-    <arg name="paused" default="false"/>
+    <!--<arg name="paused" default="false"/>
     <arg name="use_sim_time" default="true"/>
     <arg name="gui" default="true"/>
     <arg name="headless" default="false"/>
     <arg name="debug" default="false"/>
-    <arg name="model" default="$(find blackship_tf)/urdf/blackship_body.urdf"/>
+    <arg name="model" default="$(find blackship_tf)/urdf/blackship_body.urdf"/>-->
 
     <!--Gazeboの起動-->
-    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <!--<include file="$(find gazebo_ros)/launch/empty_world.launch">
         <arg name="debug" value="$(arg debug)"/>
         <arg name="gui" value="$(arg gui)"/>
         <arg name="paused" value="$(arg paused)"/>   
         <arg name="use_sim_time" value="$(arg use_sim_time)"/>
         <arg name="headless" value="$(arg headless)"/>
-    </include>
+    </include>-->
 
     <!--ロボットのURDFモデルをパラメータサーバにロードする-->
-    <param name="robot_description" command="$(arg model)"/>
+    <!--<param name="robot_description" command="$(arg model)"/>-->
+    
 
     <!--Gazeboでロボットを生成し、パラメータサーバからその記述を受ける-->
-    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model blackship"/>
+    <!--<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model blackship"/>-->
 
     <!--robot_state_publisherの起動-->
-    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+    <!--<node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
         <pram name="publish_frequency" value="30.0"/>
-    </node>
+    </node>-->
+
+    <param name="robot_description" textfile="$(find blackship_tf)/urdf/blackship_body.urdf"/>
+    <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -x 0.0 -y 0.0 -z 0.5 -R 0 -P 0 -urdf -model blackship"/>
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen"/>
+    <node name="rviz" pkg="rviz" type="rviz"/>
+
 </launch>

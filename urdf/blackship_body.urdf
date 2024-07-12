@@ -113,7 +113,7 @@
         <material>Gazebo/Blue</material>
     </gazebo>
 
-    <gzebo reference="lidar_support_link">
+    <gazebo reference="lidar_support_link">
         <mu1>0.0</mu1>
         <mu2>0.0</mu2>
         <material>Gazebo/Yellow</material>
@@ -123,6 +123,18 @@
         <mu1>0.0</mu1>
         <mu2>0.0</mu2>
         <material>Gazebo/Purple</material>
+    </gazebo>
+
+<!--差動駆動プラグインを指定-->
+    <gazebo>
+        <plugin name="fifferential_drive_controller" filenmae="libgazebo_ros_diff_drive.so">
+            <leftJoint>left_wheel_joint</leftJoint>
+            <rightJoint>right_wheel_joint</rightJoint>
+            <robotBaseFrame>base_link</robotBaseFrame>
+            <wheelSeparation>0.31</wheelSeparation><!--トレッド(左右のタイヤ接地面の中心間の距離)[m]-->
+            <wheelDiameter>0.17</wheelDiameter><!--車輪の直径-->
+            <publishWheelJointState>true</publishWheelJointState>
+        </plugin>
     </gazebo>
 </robot>
         
