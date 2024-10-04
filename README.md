@@ -8,7 +8,7 @@
 
 ### urdf_tutrialパッケージのインストール
 
-` $sudo apt-get install -y ros-kinetic-urdf-tutorial `
+` $sudo apt-get install -y ros-noetic-urdf-tutorial `
 
 ### URDFファイルの作成
 
