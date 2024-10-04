@@ -12,7 +12,7 @@
 
 ### ROSでURDFファイルの確認を行う際に必要なツール
 
-'sudo apt install liburdfdom-tools'
+`sudo apt install liburdfdom-tools`
 
 ### URDFファイルの作成
 
