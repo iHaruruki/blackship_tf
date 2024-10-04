@@ -10,6 +10,10 @@
 
 ` $sudo apt-get install -y ros-noetic-urdf-tutorial `
 
+### ROSでURDFファイルの確認を行う際に必要なツール
+
+'sudo apt install liburdfdom-tools'
+
 ### URDFファイルの作成
 
 
